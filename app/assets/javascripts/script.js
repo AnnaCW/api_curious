@@ -11,11 +11,28 @@ $(function() {
 
       });
 
+      $.getJSON("https://api.github.com/users/AnnaCW/orgs",
+        function(response) {
+          console.log(response);
+          $.each(response, function(i, org) {
+            $('#orgs').append("<li>"+org.login+"</li>");
+           });
+      });
+
       $.getJSON("https://api.github.com/users/AnnaCW/repos",
         function(response) {
           console.log(response);
           $.each(response, function(i, repo) {
             $('#repos').append("<li>"+repo.name+"</li>");
+           });
+      });
+
+      $.getJSON("https://api.github.com/users/AnnaCW/events",
+        function(response) {
+          console.log(response);
+          $.each(response, function(i, event) {
+              $('#activity').append("<li>Repo:"+event.repo.name+", Event Type:"+event.type+"</li>");
+
            });
       });
 });

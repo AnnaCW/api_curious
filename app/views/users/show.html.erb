@@ -1,18 +1,741 @@
-<div class="container">
-  <h1>Profile</h1>
+<h1>Profile</h1>
   <h2><%= @user.name %></h2>
 
-  
-        <h4>User Info:</h4>
-          <div id="github-user-info">
-              <div id="profileimg"></div>
-              <div id="profileurl"></div>
-              <ul id="jsonhere"></ul>
-              <ul id="starred"></ul>
+  <div class="column one-fourth">
+
+    <h4>User Info:</h4>
+        <div id="github-user-info">
+            <div id="profileimg"></div>
+            <div id="profileurl"></div>
+            <ul id="jsonhere"></ul>
+            <ul id="starred"></ul>
+            <h5>Organizations</h5>
+              <ul id="orgs"></ul>
+        </div>
+  </div>
+
+  <div class="column one-fourth">
+      <h4> Repositories</h4>
+        <ul id="repos"></ul>
+  </div>
+
+  <div class="column one-fourth">
+      <h4> Public Activity</h4>
+        <ul id="activity"></ul>
+  </div>
+
+              <nav class="tabnav-tabs" data-pjax="" role="navigation">
+                  <a href="/AnnaCW" class="tabnav-tab " aria-selected="false" role="tab">
+                    <svg aria-hidden="true" class="octicon octicon-person" height="16" version="1.1" viewBox="0 0 8 16" width="8"><path d="M7 6H1c-.55 0-1 .45-1 1v5h2v3c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-3h2V7c0-.55-.45-1-1-1zm0 5H6V9H5v6H3V9H2v2H1V7h6v4zm0-8c0-1.66-1.34-3-3-3S1 1.34 1 3s1.34 3 3 3 3-1.34 3-3zM4 5c-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2 0 1.11-.89 2-2 2z"></path></svg>
+                    Overview
+                  </a>
+                  <a href="/AnnaCW?tab=repositories" class="tabnav-tab " aria-selected="false" role="tab">
+                    <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+                    Repositories
+                  </a>
+                  <a href="/AnnaCW?tab=activity" class="tabnav-tab selected" aria-selected="true" role="tab">
+                    <svg aria-hidden="true" class="octicon octicon-rss" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path d="M2 13H0v-2c1.11 0 2 .89 2 2zM0 3v1a9 9 0 0 1 9 9h1C10 7.48 5.52 3 0 3zm0 4v1c2.75 0 5 2.25 5 5h1c0-3.31-2.69-6-6-6z"></path></svg>
+                    Public activity
+                  </a>
+                </nav>
+              </div>
+
+              <div class="js-repo-filter position-relative">
+                  <div class="activity-tab">
+          <a href="/AnnaCW.atom" class="feed-icon tooltipped tooltipped-sw position-absolute right-0" aria-label="Follow AnnaCW’s activity feed">
+            <svg aria-hidden="true" class="octicon octicon-rss" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path d="M2 13H0v-2c1.11 0 2 .89 2 2zM0 3v1a9 9 0 0 1 9 9h1C10 7.48 5.52 3 0 3zm0 4v1c2.75 0 5 2.25 5 5h1c0-3.31-2.69-6-6-6z"></path></svg>
+          </a>
+          <div class="clearfix"></div>
+
+
+              <div class="news public_news">
+                  <div class="alert issues_closed"><div class="body"><!-- issues -->
+        <svg aria-label="Issue" class="octicon octicon-issue-closed dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 16 16" width="32"><path d="M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-12T11:34:43Z" title="Jul 12, 2016, 5:34 AM MDT">12 minutes ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:IssuesEvent target:actor">AnnaCW</a> closed issue <a href="/AnnaCW/api_curious/issues/1" data-ga-click="News feed, event click, Event click type:IssuesEvent target:issue" title="add figaro">AnnaCW/api_curious#1</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>
+              add figaro
+            </blockquote>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert issues_opened"><div class="body"><!-- issues -->
+        <svg aria-label="Issue" class="octicon octicon-issue-opened dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 14 16" width="28"><path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-12T11:34:26Z" title="Jul 12, 2016, 5:34 AM MDT">12 minutes ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:IssuesEvent target:actor">AnnaCW</a> opened issue <a href="/AnnaCW/api_curious/issues/2" data-ga-click="News feed, event click, Event click type:IssuesEvent target:issue" title="heroku?">AnnaCW/api_curious#2</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>
+              heroku?
+            </blockquote>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert issues_opened"><div class="body"><!-- issues -->
+        <svg aria-label="Issue" class="octicon octicon-issue-opened dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 14 16" width="28"><path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-12T11:34:10Z" title="Jul 12, 2016, 5:34 AM MDT">12 minutes ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:IssuesEvent target:actor">AnnaCW</a> opened issue <a href="/AnnaCW/api_curious/issues/1" data-ga-click="News feed, event click, Event click type:IssuesEvent target:issue" title="add figaro">AnnaCW/api_curious#1</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>
+              add figaro
+            </blockquote>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert create simple"><div class="body"><!-- create -->
+        <div class="simple">
+          <svg aria-label="Create" class="octicon octicon-git-branch dashboard-event-icon" height="16" role="img" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+          <div class="title">
+            <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:CreateEvent target:actor">AnnaCW</a> created branch <a href="/AnnaCW/api_curious/tree/master" class="css-truncate css-truncate-target branch-name" data-ga-click="News feed, event click, Event click type:CreateEvent target: branch link" title="master">master</a> at <a href="/AnnaCW/api_curious" data-ga-click="News feed, event click, Event click type:CreateEvent target:repo">AnnaCW/api_curious</a>
           </div>
 
-        <h4> Repositories</h4>
-            <ul id="repos"></ul>
+          <div class="time">
+            <relative-time datetime="2016-07-12T11:33:29Z" title="Jul 12, 2016, 5:33 AM MDT">13 minutes ago</relative-time>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert create simple"><div class="body"><!-- create -->
+        <div class="simple">
+          <svg aria-label="Create" class="octicon octicon-repo dashboard-event-icon" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
 
+          <div class="title">
+            <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:CreateEvent target:actor">AnnaCW</a> created repository <a href="/AnnaCW/api_curious" data-ga-click="News feed, event click, Event click type:CreateEvent target:repository" title="AnnaCW/api_curious">AnnaCW/api_curious</a>
+          </div>
 
-</div>
+          <div class="time">
+            <relative-time datetime="2016-07-12T11:32:50Z" title="Jul 12, 2016, 5:32 AM MDT">13 minutes ago</relative-time>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert issues_opened"><div class="body"><!-- pull_request -->
+        <svg aria-label="Pull request" class="octicon octicon-git-pull-request dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 12 16" width="24"><path d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-09T20:14:51Z" title="Jul 9, 2016, 2:14 PM MDT">3 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:actor">AnnaCW</a> opened pull request <a href="/turingschool/ruby-submissions/pull/2034" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:pull">turingschool/ruby-submissions#2034</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>Update intermediate_sql.md</blockquote>
+              <div class="pull-info">
+                <svg aria-hidden="true" class="octicon octicon-git-commit" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+                <em>1</em> commit with
+                <em>1</em> addition and
+                <em>1</em> deletion
+              </div>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert push"><div class="body"><!-- push -->
+        <svg aria-label="Push" class="octicon octicon-git-commit dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 14 16" width="28"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-09T20:14:26Z" title="Jul 9, 2016, 2:14 PM MDT">3 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PushEvent target:actor">AnnaCW</a> pushed to <a href="/AnnaCW/ruby-submissions/tree/patch-8" data-ga-click="News feed, event click, Event click type:PushEvent target:branch">patch-8</a> at <a href="/AnnaCW/ruby-submissions" data-ga-click="News feed, event click, Event click type:PushEvent target:repo">AnnaCW/ruby-submissions</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+
+            <div class="commits pusher-is-only-committer">
+              <ul>
+                <li>
+                  <span title="AnnaCW">
+                    <img alt="@AnnaCW" height="16" src="https://avatars1.githubusercontent.com/u/17806544?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/AnnaCW/ruby-submissions/commit/513f2e450057eecfa11254713ac3f978354cf60a" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">513f2e4</a></code>
+                  <div class="message">
+                    <blockquote>
+                      Update intermediate_sql.md
+                    </blockquote>
+                  </div>
+                </li>
+              </ul>
+            </div>
+        </div>
+        </div></div>
+                  <div class="alert create simple"><div class="body"><!-- create -->
+        <div class="simple">
+          <svg aria-label="Create" class="octicon octicon-git-branch dashboard-event-icon" height="16" role="img" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+          <div class="title">
+            <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:CreateEvent target:actor">AnnaCW</a> created branch <a href="/AnnaCW/refugeerestart/tree/master" class="css-truncate css-truncate-target branch-name" data-ga-click="News feed, event click, Event click type:CreateEvent target: branch link" title="master">master</a> at <a href="/AnnaCW/refugeerestart" data-ga-click="News feed, event click, Event click type:CreateEvent target:repo">AnnaCW/refugeerestart</a>
+          </div>
+
+          <div class="time">
+            <relative-time datetime="2016-07-09T13:38:51Z" title="Jul 9, 2016, 7:38 AM MDT">3 days ago</relative-time>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert create simple"><div class="body"><!-- create -->
+        <div class="simple">
+          <svg aria-label="Create" class="octicon octicon-repo dashboard-event-icon" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+
+          <div class="title">
+            <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:CreateEvent target:actor">AnnaCW</a> created repository <a href="/AnnaCW/refugeerestart" data-ga-click="News feed, event click, Event click type:CreateEvent target:repository" title="AnnaCW/refugeerestart">AnnaCW/refugeerestart</a>
+          </div>
+
+          <div class="time">
+            <relative-time datetime="2016-07-09T13:37:10Z" title="Jul 9, 2016, 7:37 AM MDT">3 days ago</relative-time>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert create simple"><div class="body"><!-- create -->
+        <div class="simple">
+          <svg aria-label="Create" class="octicon octicon-repo dashboard-event-icon" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+
+          <div class="title">
+            <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:CreateEvent target:actor">AnnaCW</a> created repository <a href="/AnnaCW/AnnaCW-refugee_restart" data-ga-click="News feed, event click, Event click type:CreateEvent target:repository" title="AnnaCW/AnnaCW-refugee_restart">AnnaCW/AnnaCW-refugee_restart</a>
+          </div>
+
+          <div class="time">
+            <relative-time datetime="2016-07-09T13:35:45Z" title="Jul 9, 2016, 7:35 AM MDT">3 days ago</relative-time>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert create simple"><div class="body"><!-- create -->
+        <div class="simple">
+          <svg aria-label="Create" class="octicon octicon-git-branch dashboard-event-icon" height="16" role="img" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+          <div class="title">
+            <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:CreateEvent target:actor">AnnaCW</a> created branch <a href="/AnnaCW/refugee_restart/tree/master" class="css-truncate css-truncate-target branch-name" data-ga-click="News feed, event click, Event click type:CreateEvent target: branch link" title="master">master</a> at <a href="/AnnaCW/refugee_restart" data-ga-click="News feed, event click, Event click type:CreateEvent target:repo">AnnaCW/refugee_restart</a>
+          </div>
+
+          <div class="time">
+            <relative-time datetime="2016-07-09T13:12:06Z" title="Jul 9, 2016, 7:12 AM MDT">3 days ago</relative-time>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert create simple"><div class="body"><!-- create -->
+        <div class="simple">
+          <svg aria-label="Create" class="octicon octicon-repo dashboard-event-icon" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+
+          <div class="title">
+            <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:CreateEvent target:actor">AnnaCW</a> created repository <a href="/AnnaCW/refugee_restart" data-ga-click="News feed, event click, Event click type:CreateEvent target:repository" title="AnnaCW/refugee_restart">AnnaCW/refugee_restart</a>
+          </div>
+
+          <div class="time">
+            <relative-time datetime="2016-07-09T13:08:08Z" title="Jul 9, 2016, 7:08 AM MDT">3 days ago</relative-time>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert create simple"><div class="body"><!-- create -->
+        <div class="simple">
+          <svg aria-label="Create" class="octicon octicon-repo dashboard-event-icon" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+
+          <div class="title">
+            <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:CreateEvent target:actor">AnnaCW</a> created repository <a href="/AnnaCW/the_pivot" data-ga-click="News feed, event click, Event click type:CreateEvent target:repository" title="AnnaCW/the_pivot">AnnaCW/the_pivot</a>
+          </div>
+
+          <div class="time">
+            <relative-time datetime="2016-07-09T13:01:33Z" title="Jul 9, 2016, 7:01 AM MDT">3 days ago</relative-time>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert push"><div class="body"><!-- push -->
+        <svg aria-label="Push" class="octicon octicon-git-commit dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 14 16" width="28"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-08T17:54:00Z" title="Jul 8, 2016, 11:54 AM MDT">4 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PushEvent target:actor">AnnaCW</a> pushed to <a href="/lucyfox4131/the_pivot/tree/master" data-ga-click="News feed, event click, Event click type:PushEvent target:branch">master</a> at <a href="/lucyfox4131/the_pivot" data-ga-click="News feed, event click, Event click type:PushEvent target:repo">lucyfox4131/the_pivot</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+
+            <div class="commits ">
+              <ul>
+                <li>
+                  <span title="AnnaCW">
+                    <img alt="@AnnaCW" height="16" src="https://avatars1.githubusercontent.com/u/17806544?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/lucyfox4131/the_pivot/commit/a036cb30b594e4242f1629bcb735ff8d3ca3a4ab" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">a036cb3</a></code>
+                  <div class="message">
+                    <blockquote>
+                      Merge pull request #139 from lucyfox4131/charity_fix
+                    </blockquote>
+                  </div>
+                </li>
+                <li>
+                  <span title="lucyfox4131">
+                    <img alt="@lucyfox4131" height="16" src="https://avatars3.githubusercontent.com/u/14189706?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/lucyfox4131/the_pivot/commit/84069c4e76209674beb6e11e11ee3963b73feef5" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">84069c4</a></code>
+                  <div class="message">
+                    <blockquote>
+                      Fix bug, new charity
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="more"><a href="/lucyfox4131/the_pivot/compare/ebea8af845...a036cb30b5" data-ga-click="News feed, event click, Event click type:PushEvent target:comparison">1 more commit »</a></li>
+              </ul>
+            </div>
+        </div>
+        </div></div>
+                  <div class="alert issues_closed"><div class="body"><!-- pull_request -->
+        <svg aria-label="Pull request" class="octicon octicon-git-pull-request dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 12 16" width="24"><path d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-08T17:53:59Z" title="Jul 8, 2016, 11:53 AM MDT">4 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:actor">AnnaCW</a> merged pull request <a href="/lucyfox4131/the_pivot/pull/139" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:pull">lucyfox4131/the_pivot#139</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>Charity fix</blockquote>
+              <div class="pull-info">
+                <svg aria-hidden="true" class="octicon octicon-git-commit" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+                <em>2</em> commits with
+                <em>12</em> additions and
+                <em>11</em> deletions
+              </div>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert issues_opened"><div class="body"><!-- pull_request -->
+        <svg aria-label="Pull request" class="octicon octicon-git-pull-request dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 12 16" width="24"><path d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-08T16:45:15Z" title="Jul 8, 2016, 10:45 AM MDT">4 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:actor">AnnaCW</a> opened pull request <a href="/lucyfox4131/the_pivot/pull/135" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:pull">lucyfox4131/the_pivot#135</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>add readme</blockquote>
+              <div class="pull-info">
+                <svg aria-hidden="true" class="octicon octicon-git-commit" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+                <em>1</em> commit with
+                <em>39</em> additions and
+                <em>9</em> deletions
+              </div>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert create simple"><div class="body"><!-- create -->
+        <div class="simple">
+          <svg aria-label="Create" class="octicon octicon-git-branch dashboard-event-icon" height="16" role="img" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+          <div class="title">
+            <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:CreateEvent target:actor">AnnaCW</a> created branch <a href="/lucyfox4131/the_pivot/tree/add_readme" class="css-truncate css-truncate-target branch-name" data-ga-click="News feed, event click, Event click type:CreateEvent target: branch link" title="add_readme">add_readme</a> at <a href="/lucyfox4131/the_pivot" data-ga-click="News feed, event click, Event click type:CreateEvent target:repo">lucyfox4131/the_pivot</a>
+          </div>
+
+          <div class="time">
+            <relative-time datetime="2016-07-08T16:44:33Z" title="Jul 8, 2016, 10:44 AM MDT">4 days ago</relative-time>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert push"><div class="body"><!-- push -->
+        <svg aria-label="Push" class="octicon octicon-git-commit dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 14 16" width="28"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-08T16:13:28Z" title="Jul 8, 2016, 10:13 AM MDT">4 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PushEvent target:actor">AnnaCW</a> pushed to <a href="/lucyfox4131/the_pivot/tree/master" data-ga-click="News feed, event click, Event click type:PushEvent target:branch">master</a> at <a href="/lucyfox4131/the_pivot" data-ga-click="News feed, event click, Event click type:PushEvent target:repo">lucyfox4131/the_pivot</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+
+            <div class="commits ">
+              <ul>
+                <li>
+                  <span title="AnnaCW">
+                    <img alt="@AnnaCW" height="16" src="https://avatars1.githubusercontent.com/u/17806544?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/lucyfox4131/the_pivot/commit/342db59ebc6aaef99440cedf34f77392f150ae40" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">342db59</a></code>
+                  <div class="message">
+                    <blockquote>
+                      Merge pull request #134 from lucyfox4131/charity_admin_new
+                    </blockquote>
+                  </div>
+                </li>
+                <li>
+                  <span title="lucyfox4131">
+                    <img alt="@lucyfox4131" height="16" src="https://avatars3.githubusercontent.com/u/14189706?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/lucyfox4131/the_pivot/commit/bda73964f804094f8c50b605612f3353e1c23a00" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">bda7396</a></code>
+                  <div class="message">
+                    <blockquote>
+                      Charity and platform
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="more"><a href="/lucyfox4131/the_pivot/compare/da096afaa2...342db59ebc" data-ga-click="News feed, event click, Event click type:PushEvent target:comparison">1 more commit »</a></li>
+              </ul>
+            </div>
+        </div>
+        </div></div>
+                  <div class="alert issues_closed"><div class="body"><!-- pull_request -->
+        <svg aria-label="Pull request" class="octicon octicon-git-pull-request dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 12 16" width="24"><path d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-08T16:13:28Z" title="Jul 8, 2016, 10:13 AM MDT">4 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:actor">AnnaCW</a> merged pull request <a href="/lucyfox4131/the_pivot/pull/134" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:pull">lucyfox4131/the_pivot#134</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>Charity admin new</blockquote>
+              <div class="pull-info">
+                <svg aria-hidden="true" class="octicon octicon-git-commit" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+                <em>2</em> commits with
+                <em>61</em> additions and
+                <em>19</em> deletions
+              </div>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert push"><div class="body"><!-- push -->
+        <svg aria-label="Push" class="octicon octicon-git-commit dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 14 16" width="28"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-08T15:20:32Z" title="Jul 8, 2016, 9:20 AM MDT">4 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PushEvent target:actor">AnnaCW</a> pushed to <a href="/lucyfox4131/the_pivot/tree/master" data-ga-click="News feed, event click, Event click type:PushEvent target:branch">master</a> at <a href="/lucyfox4131/the_pivot" data-ga-click="News feed, event click, Event click type:PushEvent target:repo">lucyfox4131/the_pivot</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+
+            <div class="commits ">
+              <ul>
+                <li>
+                  <span title="AnnaCW">
+                    <img alt="@AnnaCW" height="16" src="https://avatars1.githubusercontent.com/u/17806544?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/lucyfox4131/the_pivot/commit/b08c7980cd01dd46238ad81d14d74b2dd2a58ed4" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">b08c798</a></code>
+                  <div class="message">
+                    <blockquote>
+                      Merge pull request #133 from lucyfox4131/small_changes
+                    </blockquote>
+                  </div>
+                </li>
+                <li>
+                  <span title="lucyfox4131">
+                    <img alt="@lucyfox4131" height="16" src="https://avatars3.githubusercontent.com/u/14189706?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/lucyfox4131/the_pivot/commit/a867aa48015a274edee588e7bcb61dbc366b013c" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">a867aa4</a></code>
+                  <div class="message">
+                    <blockquote>
+                      Incorportate zoom disable for map
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="more"><a href="/lucyfox4131/the_pivot/compare/f9362629ff...b08c7980cd" data-ga-click="News feed, event click, Event click type:PushEvent target:comparison">4 more commits »</a></li>
+              </ul>
+            </div>
+        </div>
+        </div></div>
+                  <div class="alert issues_closed"><div class="body"><!-- pull_request -->
+        <svg aria-label="Pull request" class="octicon octicon-git-pull-request dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 12 16" width="24"><path d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-08T15:20:32Z" title="Jul 8, 2016, 9:20 AM MDT">4 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:actor">AnnaCW</a> merged pull request <a href="/lucyfox4131/the_pivot/pull/133" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:pull">lucyfox4131/the_pivot#133</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>Small changes</blockquote>
+              <div class="pull-info">
+                <svg aria-hidden="true" class="octicon octicon-git-commit" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+                <em>5</em> commits with
+                <em>9</em> additions and
+                <em>144</em> deletions
+              </div>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert issues_closed"><div class="body"><!-- pull_request -->
+        <svg aria-label="Pull request" class="octicon octicon-git-pull-request dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 12 16" width="24"><path d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-08T15:18:43Z" title="Jul 8, 2016, 9:18 AM MDT">4 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:actor">AnnaCW</a> closed pull request <a href="/lucyfox4131/the_pivot/pull/118" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:pull">lucyfox4131/the_pivot#118</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>WIP - add ajax</blockquote>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert issues_closed"><div class="body"><!-- pull_request -->
+        <svg aria-label="Pull request" class="octicon octicon-git-pull-request dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 12 16" width="24"><path d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-08T15:18:25Z" title="Jul 8, 2016, 9:18 AM MDT">4 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:actor">AnnaCW</a> closed pull request <a href="/lucyfox4131/the_pivot/pull/131" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:pull">lucyfox4131/the_pivot#131</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>map - remove mouseover zoom</blockquote>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert push"><div class="body"><!-- push -->
+        <svg aria-label="Push" class="octicon octicon-git-commit dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 14 16" width="28"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-08T00:17:38Z" title="Jul 7, 2016, 6:17 PM MDT">4 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PushEvent target:actor">AnnaCW</a> pushed to <a href="/lucyfox4131/the_pivot/tree/add_ajax" data-ga-click="News feed, event click, Event click type:PushEvent target:branch">add_ajax</a> at <a href="/lucyfox4131/the_pivot" data-ga-click="News feed, event click, Event click type:PushEvent target:repo">lucyfox4131/the_pivot</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+
+            <div class="commits pusher-is-only-committer">
+              <ul>
+                <li>
+                  <span title="AnnaCW">
+                    <img alt="@AnnaCW" height="16" src="https://avatars1.githubusercontent.com/u/17806544?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/lucyfox4131/the_pivot/commit/0785424a3597f52d95968f7f5fc1e3f31ac752db" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">0785424</a></code>
+                  <div class="message">
+                    <blockquote>
+                      ajax almost working
+                    </blockquote>
+                  </div>
+                </li>
+                <li>
+                  <span title="AnnaCW">
+                    <img alt="@AnnaCW" height="16" src="https://avatars1.githubusercontent.com/u/17806544?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/lucyfox4131/the_pivot/commit/83ae3c38095c6f3aad412154c06f164f05d3cbde" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">83ae3c3</a></code>
+                  <div class="message">
+                    <blockquote>
+                      in progress
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="more"><a href="/lucyfox4131/the_pivot/compare/23a1ea514b...0785424a35" data-ga-click="News feed, event click, Event click type:PushEvent target:comparison">View comparison for these 2 commits »</a></li>
+              </ul>
+            </div>
+        </div>
+        </div></div>
+                  <div class="alert issues_opened"><div class="body"><!-- pull_request -->
+        <svg aria-label="Pull request" class="octicon octicon-git-pull-request dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 12 16" width="24"><path d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-07T23:31:01Z" title="Jul 7, 2016, 5:31 PM MDT">5 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:actor">AnnaCW</a> opened pull request <a href="/lucyfox4131/the_pivot/pull/131" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:pull">lucyfox4131/the_pivot#131</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>map - remove mouseover zoom</blockquote>
+              <div class="pull-info">
+                <svg aria-hidden="true" class="octicon octicon-git-commit" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+                <em>1</em> commit with
+                <em>2</em> additions and
+                <em>0</em> deletions
+              </div>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert create simple"><div class="body"><!-- create -->
+        <div class="simple">
+          <svg aria-label="Create" class="octicon octicon-git-branch dashboard-event-icon" height="16" role="img" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+          <div class="title">
+            <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:CreateEvent target:actor">AnnaCW</a> created branch <a href="/lucyfox4131/the_pivot/tree/final_changes_dev" class="css-truncate css-truncate-target branch-name" data-ga-click="News feed, event click, Event click type:CreateEvent target: branch link" title="final_changes_dev">final_changes_dev</a> at <a href="/lucyfox4131/the_pivot" data-ga-click="News feed, event click, Event click type:CreateEvent target:repo">lucyfox4131/the_pivot</a>
+          </div>
+
+          <div class="time">
+            <relative-time datetime="2016-07-07T23:16:55Z" title="Jul 7, 2016, 5:16 PM MDT">5 days ago</relative-time>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert create simple"><div class="body"><!-- create -->
+        <div class="simple">
+          <svg aria-label="Create" class="octicon octicon-git-branch dashboard-event-icon" height="16" role="img" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+          <div class="title">
+            <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:CreateEvent target:actor">AnnaCW</a> created branch <a href="/lucyfox4131/the_pivot/tree/map_final" class="css-truncate css-truncate-target branch-name" data-ga-click="News feed, event click, Event click type:CreateEvent target: branch link" title="map_final">map_final</a> at <a href="/lucyfox4131/the_pivot" data-ga-click="News feed, event click, Event click type:CreateEvent target:repo">lucyfox4131/the_pivot</a>
+          </div>
+
+          <div class="time">
+            <relative-time datetime="2016-07-07T23:15:29Z" title="Jul 7, 2016, 5:15 PM MDT">5 days ago</relative-time>
+          </div>
+        </div>
+        </div></div>
+                  <div class="alert push"><div class="body"><!-- push -->
+        <svg aria-label="Push" class="octicon octicon-git-commit dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 14 16" width="28"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-07T22:27:51Z" title="Jul 7, 2016, 4:27 PM MDT">5 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PushEvent target:actor">AnnaCW</a> pushed to <a href="/lucyfox4131/the_pivot/tree/master" data-ga-click="News feed, event click, Event click type:PushEvent target:branch">master</a> at <a href="/lucyfox4131/the_pivot" data-ga-click="News feed, event click, Event click type:PushEvent target:repo">lucyfox4131/the_pivot</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+
+            <div class="commits pusher-is-only-committer">
+              <ul>
+                <li>
+                  <span title="AnnaCW">
+                    <img alt="@AnnaCW" height="16" src="https://avatars1.githubusercontent.com/u/17806544?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/lucyfox4131/the_pivot/commit/f9362629ffee6bf49a7f2ec20cff04b51fffb9b9" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">f936262</a></code>
+                  <div class="message">
+                    <blockquote>
+                      fix insecure cdns
+                    </blockquote>
+                  </div>
+                </li>
+              </ul>
+            </div>
+        </div>
+        </div></div>
+                  <div class="alert push"><div class="body"><!-- push -->
+        <svg aria-label="Push" class="octicon octicon-git-commit dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 14 16" width="28"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-07T21:32:51Z" title="Jul 7, 2016, 3:32 PM MDT">5 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PushEvent target:actor">AnnaCW</a> pushed to <a href="/lucyfox4131/the_pivot/tree/master" data-ga-click="News feed, event click, Event click type:PushEvent target:branch">master</a> at <a href="/lucyfox4131/the_pivot" data-ga-click="News feed, event click, Event click type:PushEvent target:repo">lucyfox4131/the_pivot</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+
+            <div class="commits ">
+              <ul>
+                <li>
+                  <span title="AnnaCW">
+                    <img alt="@AnnaCW" height="16" src="https://avatars1.githubusercontent.com/u/17806544?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/lucyfox4131/the_pivot/commit/50e3b2567a88a1c324ca4aa367b9228d7c3ecd3c" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">50e3b25</a></code>
+                  <div class="message">
+                    <blockquote>
+                      Merge pull request #130 from lucyfox4131/fix_seed_data_user_roles
+                    </blockquote>
+                  </div>
+                </li>
+                <li>
+                  <span title="lucyfox4131">
+                    <img alt="@lucyfox4131" height="16" src="https://avatars3.githubusercontent.com/u/14189706?v=3&amp;s=32" width="16">
+                  </span>
+                  <code><a href="/lucyfox4131/the_pivot/commit/210727101ef709f1d23d3b059c610b8034044a6c" data-ga-click="News feed, event click, Event click type:PushEvent target:sha">2107271</a></code>
+                  <div class="message">
+                    <blockquote>
+                      change seed data file
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="more"><a href="/lucyfox4131/the_pivot/compare/c2643ec0ac...50e3b2567a" data-ga-click="News feed, event click, Event click type:PushEvent target:comparison">View comparison for these 2 commits »</a></li>
+              </ul>
+            </div>
+        </div>
+        </div></div>
+                  <div class="alert issues_closed"><div class="body"><!-- pull_request -->
+        <svg aria-label="Pull request" class="octicon octicon-git-pull-request dashboard-event-icon" height="32" role="img" version="1.1" viewBox="0 0 12 16" width="24"><path d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+
+        <div class="time">
+          <relative-time datetime="2016-07-07T21:32:51Z" title="Jul 7, 2016, 3:32 PM MDT">5 days ago</relative-time>
+        </div>
+
+        <div class="title">
+          <a href="/AnnaCW" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:actor">AnnaCW</a> merged pull request <a href="/lucyfox4131/the_pivot/pull/130" data-ga-click="News feed, event click, Event click type:PullRequestEvent target:pull">lucyfox4131/the_pivot#130</a>
+        </div>
+
+        <div class="details">
+          <a href="/AnnaCW"><img alt="@AnnaCW" class="gravatar" height="30" src="https://avatars0.githubusercontent.com/u/17806544?v=3&amp;s=60" width="30"></a>
+          <div class="message">
+            <blockquote>change seed data file</blockquote>
+              <div class="pull-info">
+                <svg aria-hidden="true" class="octicon octicon-git-commit" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"></path></svg>
+                <em>1</em> commit with
+                <em>4</em> additions and
+                <em>2</em> deletions
+              </div>
+          </div>
+        </div>
+        </div></div>
+              </div>
+
+        </div>
+
+              </div>
+            </div>
