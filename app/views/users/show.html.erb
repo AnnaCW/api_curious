@@ -1,5 +1,6 @@
 <h1>Profile</h1>
-  <h2><%= @user.name %></h2>
+  <h3><%= @github_user.name %></h3>
+  <h4><%= @github_user.login %></h4>
 
   <div class="column one-fourth">
 
@@ -16,13 +17,36 @@
 
   <div class="column one-fourth">
       <h4> Repositories</h4>
-        <ul id="repos"></ul>
+      <ul>
+        <% @github_user.repositories.each do |repo| %>
+          <li> <%= repo["name"] %> </li>
+        <% end %>
+      </ul>
   </div>
+
+
+  <!-- <div class="column one-fourth">
+      <h4> Repositories</h4>
+        <ul id="repos"></ul>
+  </div> -->
 
   <div class="column one-fourth">
       <h4> Public Activity</h4>
         <ul id="activity"></ul>
   </div>
+
+  <div class="column one-fourth">
+      <h4> Push Events</h4>
+      <ul id="push_events">
+        <% @github_user.push_events.each do |event| %>
+          <li> <%= event %> </li>
+        <% end %>
+      </ul>
+  </div>
+
+
+
+
 
               <nav class="tabnav-tabs" data-pjax="" role="navigation">
                   <a href="/AnnaCW" class="tabnav-tab " aria-selected="false" role="tab">

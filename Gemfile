@@ -28,7 +28,7 @@ gem 'therubyracer'
 gem 'less-rails-bootstrap'
 gem "minitest-rails"
 gem 'figaro'
-
+gem 'faraday'
 
 
 group :development, :test do

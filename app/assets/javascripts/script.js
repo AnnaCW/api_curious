@@ -3,6 +3,7 @@ $(function() {
       function(response) {
         console.log(response);
         $('#jsonhere').append("<li>Name: "+response.name+"</li>");
+        $('#jsonhere').append("<li> "+response.login+"</li>");
         $('#jsonhere').append("<li>Followers: "+response.followers+"</li>");
         $('#jsonhere').append("<li>Following: "+response.following+"</li>");
         $('#jsonhere').append("<li>Starred: "+response.starred+"</li>");
