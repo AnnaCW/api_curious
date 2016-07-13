@@ -34,20 +34,26 @@
           <li> Pushed <%= event['payload']['commits'].length %> commit(s) to <%= event['repo']['name'] %> </li>
         <% end %>
       </ul>
-
   </div>
 
   <div class="feeds">
       <h4>Feeds</h4>
 
-      <a href="https://github.com/timeline" type="application/atom+xml"/>Timeline</a>
-    
+      <a href="https://github.com/timeline.atom" type="application/atom+xml"/>Timeline</a>
+      <a href="https://github.com/#{@github_user.login}.atom" type="application/atom+xml"/>User</a>
 
+
+    <div class="clearfix"></div>
+      <h4>Notifications</h4>
+    <ul>
+      <% @github_user.notifications.each do |note| %>
+        <li> <%= note %></li>
+      <% end %>
+    </ul>
 
     <ul>
       <% @github_user.feeds.each do |feed| %>
         <li> <%= feed %></li>
       <% end %>
-
     </ul>
   </div>

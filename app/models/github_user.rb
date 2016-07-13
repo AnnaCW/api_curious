@@ -38,4 +38,8 @@ class GithubUser < OpenStruct
     GithubUser.service.get_user_feed(self)
   end
 
+  def notifications
+    GithubUser.service.get_user_notifications(self)
+  end
+
 end

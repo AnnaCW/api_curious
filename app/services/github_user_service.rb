@@ -28,6 +28,12 @@ class GithubUserService
     parse(response)
   end
 
+  def get_user_notifications(github_user)
+    response = @connection.get("/notifications")
+    @connection.headers["Authorization"] = "token #{github_user.oauth_token}"
+    parse(response)
+  end
+
   def parse(response)
     JSON.parse(response.body)
   end
