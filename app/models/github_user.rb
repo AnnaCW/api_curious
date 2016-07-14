@@ -30,20 +30,12 @@ class GithubUser < OpenStruct
     end
   end
 
-
   def pull_requests
     events.select do |event|
       event['type'] == "PullRequestEvent"
     end
   end
-
-  # def commit_messages
-  #   commits_hash = push_events.map do |event|
-  #     {(event['repo']['name']) => (event['payload']['commits'])}
-  #   end
-  #
-  # end
-
+  
   def repositories
     GithubUser.service.get_user_repos(self.user)
   end

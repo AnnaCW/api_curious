@@ -1,6 +1,5 @@
 <h1>Github Profile</h1>
   <h4><%= @github_user.name %></h4>
-  <h5><%= @github_user.login %></h5>
 
   <div class="column one-fourth">
     <div class = "well">
@@ -14,7 +13,8 @@
           <h5>Starred: <%= @github_user.num_starred %></h5>
 
 
-        <ul><h5>Organizations:</h5>
+        <h5>Organizations:</h5>
+        <ul>
           <% @github_user.orgs.each do |org| %>
             <li> <%= org %></li>
           <% end %>
