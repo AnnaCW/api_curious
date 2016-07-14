@@ -6,26 +6,20 @@
     <div class = "well">
       <h4>Account Information</h4>
         <img src="<%= @github_user.avatar_url %>" alt="Profile Image"/></img>
-        <ul>
-          <li>Name: <%= @github_user.name %></li>
-          <li>Login: <%= @github_user.login %></li>
-          <li>Followers: <%= @github_user.followers %></li>
-          <li>Following: <%= @github_user.following %></li>
-          <li>Starred: <%= @github_user.num_starred %></li>
-        </ul>
 
-        <ul><p>Organizations:</p>
+          <h5>Name: <%= @github_user.name %></h5>
+          <h5>Login: <%= @github_user.login %></h5>
+          <h5>Followers: <%= @github_user.followers %></h5>
+          <h5>Following: <%= @github_user.following %></h5>
+          <h5>Starred: <%= @github_user.num_starred %></h5>
+
+
+        <ul><h5>Organizations:</h5>
           <% @github_user.orgs.each do |org| %>
             <li> <%= org %></li>
           <% end %>
         </ul>
     </div>
-    <h4>Notifications</h4>
-  <ul>
-    <% @github_user.notifications.each do |note| %>
-      <li> <%= note %></li>
-    <% end %>
-  </ul>
 
   <h4> Open Issues </h4>
     <% @github_user.issues.each do |issue| %>
