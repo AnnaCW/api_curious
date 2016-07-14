@@ -11,9 +11,31 @@
           <li>Login: <%= @github_user.login %></li>
           <li>Followers: <%= @github_user.followers %></li>
           <li>Following: <%= @github_user.following %></li>
-          <li>Starred: <%= @github_user.starred %></li>
+          <li>Starred: <%= @github_user.num_starred %></li>
+        </ul>
+
+        <ul><p>Organizations:</p>
+          <% @github_user.orgs.each do |org| %>
+            <li> <%= org %></li>
+          <% end %>
         </ul>
     </div>
+    <h4>Notifications</h4>
+  <ul>
+    <% @github_user.notifications.each do |note| %>
+      <li> <%= note %></li>
+    <% end %>
+  </ul>
+
+  <h4> Open Issues </h4>
+    <% @github_user.issues.each do |issue| %>
+      <p> Repo: <%= issue['repository']['name'] %></br>
+          Title:<%= issue['title'] %></br>
+          Status:<%= issue['state'] %></br>
+          Created:<%= issue['created_at'] %></br>
+      </p>
+    <% end %>
+
   </div>
 
   <div class="column one-fourth">
@@ -26,34 +48,32 @@
   </div>
 
 
-
   <div class="column one-fourth">
       <h4> Recent Activity </h4>
-      <ul>
         <% @github_user.push_events.each do |event| %>
-          <li> Pushed <%= event['payload']['commits'].length %> commit(s) to <%= event['repo']['name'] %> </li>
+          <p> Pushed <%= event['payload']['commits'].length %> commit(s) to <%= event['repo']['name'] %> </p>
+        <% end %>
+
+
+      <h4> Recent Pull Requests </h4>
+
+        <% @github_user.pull_requests.each do |event| %>
+          <p>
+            Pull Request to:<%= event['repo']['name'] %></br>
+            Opened:<%= event['created_at'] %></br>
+            Status:<%= event['payload']['pull_request']['state']%></br>
+          </p>
+        <% end %>
+
+  </div>
+
+<div class="column one-fourth">
+      <h4> Followed Users' Recent Activity </h4>
+      <ul>
+        <% @github_user.received_events.each do |event| %>
+          <li> <%= event['actor']['login'] %> - <%= event['type'] %> - <%= event['repo']['name'] %> </li>
         <% end %>
       </ul>
   </div>
 
-  <div class="feeds">
-      <h4>Feeds</h4>
-
-      <a href="https://github.com/timeline.atom" type="application/atom+xml"/>Timeline</a>
-      <a href="https://github.com/#{@github_user.login}.atom" type="application/atom+xml"/>User</a>
-
-
-    <div class="clearfix"></div>
-      <h4>Notifications</h4>
-    <ul>
-      <% @github_user.notifications.each do |note| %>
-        <li> <%= note %></li>
-      <% end %>
-    </ul>
-
-    <ul>
-      <% @github_user.feeds.each do |feed| %>
-        <li> <%= feed %></li>
-      <% end %>
-    </ul>
   </div>

@@ -4,12 +4,24 @@ class GithubUser < OpenStruct
     @@service = GithubUserService.new
   end
 
-  def self.find(github_user)
-    GithubUser.new(service.get_user(github_user))
+  def self.find(user)
+    GithubUser.new(service.get_user(user))
+  end
+
+  def user
+    User.find_by(uid: self.id)
+  end
+
+  def num_starred
+    GithubUser.service.get_user_starreds(self.user).count
+  end
+
+  def orgs
+    GithubUser.service.get_user_orgs(self.user)
   end
 
   def events
-    GithubUser.service.get_user_events(self)
+    GithubUser.service.get_user_events(self.user)
   end
 
   def push_events
@@ -19,6 +31,12 @@ class GithubUser < OpenStruct
   end
 
 
+  def pull_requests
+    events.select do |event|
+      event['type'] == "PullRequestEvent"
+    end
+  end
+
   # def commit_messages
   #   commits_hash = push_events.map do |event|
   #     {(event['repo']['name']) => (event['payload']['commits'])}
@@ -27,19 +45,27 @@ class GithubUser < OpenStruct
   # end
 
   def repositories
-    GithubUser.service.get_user_repos(self)
+    GithubUser.service.get_user_repos(self.user)
   end
 
   def feeds
-    GithubUser.service.get_feeds(self)
+    GithubUser.service.get_feeds(self.user)
   end
 
   def user_feed
-    GithubUser.service.get_user_feed(self)
+    GithubUser.service.get_user_feed(self.user)
   end
 
   def notifications
-    GithubUser.service.get_user_notifications(self)
+    GithubUser.service.get_user_notifications(self.user)
+  end
+
+  def received_events
+    GithubUser.service.get_received_events(self.user)
+  end
+
+  def issues
+    GithubUser.service.get_issues(self.user)
   end
 
 end
