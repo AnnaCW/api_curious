@@ -69,11 +69,24 @@
 
 <div class="column one-fourth">
       <h4> Followed Users' Recent Activity </h4>
-      <ul>
-        <% @github_user.received_events.each do |event| %>
-          <li> <%= event['actor']['login'] %> - <%= event['type'] %> - <%= event['repo']['name'] %> </li>
-        <% end %>
-      </ul>
+      <h5> Pull Requests </h5>
+        <ul>
+          <% @github_user.received_pull_events.each do |event| %>
+            <li> <%= event.actor['login'] %> made a pull request to <%= event.repo['name'] %> </li>
+          <% end %>
+        </ul>
+        <h5> Commits </h5>
+          <ul>
+            <% @github_user.received_push_events.each do |event| %>
+              <li> <%= event.actor['login'] %> pushed commit(s) to <%= event.repo['name'] %> </li>
+            <% end %>
+          </ul>
+          <h5> Creates </h5>
+            <ul>
+              <% @github_user.received_create_events.each do |event| %>
+                <li> <%= event.actor['login'] %> created a <%= event.payload['ref_type'] %> repo: <%= event.repo['name'] %></li>
+              <% end %>
+            </ul>
   </div>
 
   </div>

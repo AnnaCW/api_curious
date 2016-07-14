@@ -61,7 +61,34 @@ class GithubUser < OpenStruct
   end
 
   def received_events
-    GithubUser.service.get_received_events(self.user)
+    raw_events = GithubUser.service.get_received_events(self.user)
+    raw_events.map do |event|
+      OpenStruct.new(event)
+    end
+  end
+
+  def received_push_events
+    received_events.select do |event|
+      event.type == "PushEvent"
+    end
+  end
+
+  def received_pull_events
+    received_events.select do |event|
+      event.type == "PullRequestEvent"
+    end
+  end
+
+  def received_create_events
+    received_events.select do |event|
+      event.type == "CreateEvent"
+    end
+  end
+
+  def received_watch_events
+    received_events.select do |event|
+      event.type == "WatchEvent"
+    end
   end
 
   def issues
